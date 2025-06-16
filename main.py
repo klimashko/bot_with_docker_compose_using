@@ -3,8 +3,8 @@ import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.redis import RedisStorage
 
-from bot.config_reader import BotSettings
-from bot.handlers import get_routers
+from bot_with_docker_compose_using.config_reader import BotSettings
+from bot_with_docker_compose_using.handlers import get_routers
 
 
 async def main():
