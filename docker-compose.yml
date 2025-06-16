@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  bot:
+    build: .
+    restart: unless-stopped
+    environment:
+      - BOT_TOKEN=5098264915:AAGWRVmrvosl_6QncB841Gjn2g2wDo6rXCI
+      - REDIS_DSN=redis://redis_fsm
+
+  redis_fsm:
+    image: "redis:7"
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
