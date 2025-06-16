@@ -9,6 +9,6 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 # Копируем весь проект
-COPY . /app
+COPY .. /app
 # Запускаем пакет как модуль (тк в нем есть __main__.py)
 CMD ["python", "-m", "bot_with_docker_compose_using"]

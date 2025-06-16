@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   bot:
-    build: .
+    build: ..
     restart: unless-stopped
     environment:
       - BOT_TOKEN=5098264915:AAGWRVmrvosl_6QncB841Gjn2g2wDo6rXCI
