@@ -4,9 +4,9 @@ services:
   bot:
     image: "klimashko108/bot_with_docker_compose_using"
     restart: unless-stopped
-    environment:
-      env_file: ".env"
+    env_file: ".env"
       # альтернативный вариант (выберите что-то одно):
+    #environment:
 #      - BOT_TOKEN=1234567890:AaBbCcDdEeFfGrOoShAHhIiJjKkLlMm
 #      - REDIS_DSN=redis://redis_fsm
     depends_on:
