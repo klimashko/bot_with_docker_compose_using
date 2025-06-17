@@ -2,14 +2,22 @@ version: "3.8"
 
 services:
   bot:
-    build: ..
+    image: "klimashko108/bot_with_docker_compose_using"
     restart: unless-stopped
     environment:
-      - BOT_TOKEN=5098264915:AAGWRVmrvosl_6QncB841Gjn2g2wDo6rXCI
-      - REDIS_DSN=redis://redis_fsm
+      env_file: ".env"
+      # альтернативный вариант (выберите что-то одно):
+#      - BOT_TOKEN=1234567890:AaBbCcDdEeFfGrOoShAHhIiJjKkLlMm
+#      - REDIS_DSN=redis://redis_fsm
+    depends_on:
+      - redis_fsm
 
   redis_fsm:
-    image: "redis:7"
+    image: redis:7
     restart: unless-stopped
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis/data:/data
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
     healthcheck:
       test: [ "CMD", "redis-cli", "ping" ]
